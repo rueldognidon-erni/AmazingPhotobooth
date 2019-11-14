@@ -1,0 +1,41 @@
+<html>
+  <head>
+    <title>Web Photobooth</title>
+    <link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-primary bg-primary">
+      <button class="navbar btn btn-primary" type="submit">
+        Web Photobooth
+      </button>
+    </nav>
+
+    <div class="container">
+      <div class="row mt-5">
+        <div class="col-sm">
+          <div id="my_camera"></div>
+          <button
+            type="button"
+            class="btn btn-primary mt-3"
+            onClick="take_snapshot()"
+          >
+            Take Snapshot
+          </button>
+        </div>
+        <div class="col-sm">
+          <canvas id="myCanvas" class="myCanvas" height="300" width="400"></canvas>
+          <button type="button" id="remove" class="btn btn-danger mt-3">Remove</button>
+          <button type="button" onClick="addSticker()" class="btn btn-primary mt-3">Add Image</button>
+          <a href="#" id="download" class="btn btn-success mt-3">Download</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Javascripts -->
+    <script src="./assets/js/jquery.js"></script>
+    <script src="./assets/js/fabric.min.js"></script>
+    <script src="./assets/js/webcam.js"></script>
+    <script src="./assets/js/main.js"></script>
+  </body>
+</html>
