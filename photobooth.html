@@ -3,11 +3,27 @@
         <link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.min.css" />
     </head>
     <style>
+        body{
+            background-color: #222222;
+        }
+        .countActive{
+            font-weight: bolder;
+            font-size: 40;
+            color: #FFFFAA;
+        }
+
+        .countInactive{
+            font-weight: bolder;
+            font-size: 40;
+            color: #aaaaaa;
+        }
+        
         .camera-container {
             display: block;
             width: 400;
             margin: auto;
         }
+
     </style>
     <body>
 
@@ -30,7 +46,7 @@
                 </div>
                 
             </div>
-            <div class="col-md-6" style="background-color: red">
+            <div class="col-md-6">
                 <div class="camera-container">
                     <div class="row" id="cameraRow">
                         <div class="col-md-12">
@@ -68,12 +84,17 @@
         </div>
         <div class="row">
             <div class="col-md-6 offset-md-3">
-               <p class="text-center">3 2 1 0</p>
+               <p class="text-center">
+                   <span id="counter3" class="countInactive">3</span>
+                   <span id="counter2" class="countInactive">2</span>
+                   <span id="counter1" class="countInactive">1</span>
+                   <span id="counter0" class="countInactive">0</span>
+               </p>
             </div>
         </div>
         <div class="row">
             <div class="col-md-6 offset-md-3 text-center">
-                <button id="takeButton" onclick="take_snapshot()">Take Photo</button>
+                <button id="takeButton" onclick="start_snapshot_timer()">Take Photo</button>
                 <button id="saveButton" class="d-none" onclick="save_photo()">Save Photo</button>
 
             </div>
