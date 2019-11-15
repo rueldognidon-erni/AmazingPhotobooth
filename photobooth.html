@@ -1,0 +1,79 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.min.css" />
+    </head>
+    <body>
+
+        <div class="row">
+            <div class="col-md-2 offset-md-1 ">
+                <div class="row">
+                    <div class="col-md-12">
+                        <button>first</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <button>first</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <button>first</button>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="col-md-6" style="background-color: red">
+                <div class="row" id="cameraRow">
+                    <div class="col-md-12">
+                        <div id="my_camera" style="background-color: blue">
+                        </div>
+                    </div>
+                </div>
+                <div class="row d-none" id="previewRow">
+                    <div class="col-md-12">
+                        <canvas id="myCanvas" height="300" width="400">
+                        </canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="row">
+                    <div class="col-md-12">
+                        <button>first</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <button>first</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <button>first</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+               <p class="text-center">3 2 1 0</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 offset-md-3 text-center">
+                <button id="takeButton" onclick="take_snapshot()">Take Photo</button>
+                <button id="saveButton" class="d-none" onclick="save_photo()">Save Photo</button>
+
+            </div>
+        </div>
+        <div class="row" id="galleryRow">
+
+        </div>
+
+        <script src="./assets/js/jquery.js"></script>
+        <script src="./assets/js/fabric.min.js"></script>
+        <script src="./assets/js/webcam.js"></script>
+        <script src="./assets/js/main.js"></script>
+    </body>
+</html>

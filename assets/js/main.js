@@ -9,16 +9,52 @@ Webcam.attach('#my_camera');
 var canvas = new fabric.Canvas('myCanvas');
 canvas.backgroundColor = 'yellow';
 
+
 function take_snapshot() {
   // take snapshot and get image data
   Webcam.snap(function(data_uri) {
+
+
+    togglePreview();
+
     // display results in page
     // fabric.Image.fromURL(data_uri, function(myImg) {
     //   canvas.add(myImg);
     // });
     // canvas.setOverlayImage(data_uri, canvas.renderAll.bind(canvas));
     canvas.setBackgroundImage(data_uri, canvas.renderAll.bind(canvas));
+  
   });
+
+
+}
+
+function save_photo(){
+
+  
+
+  var image = canvas.toDataURL("image/jpeg");
+
+  $("#galleryRow")
+  .append("<div class='col-md-2'><img src='" + 
+  image + "' style='width:100'/></div>");
+
+  togglePreview();
+}
+
+function togglePreview(){
+  var preview = document.getElementById('previewRow');
+  var camera = document.getElementById('cameraRow');
+  preview.classList.toggle("d-none");
+  camera.classList.toggle("d-none");
+
+  var takeButton = document.getElementById('takeButton');
+  var saveButton = document.getElementById('saveButton');
+
+  takeButton.classList.toggle("d-none");
+  saveButton.classList.toggle("d-none");
+
+
 }
 
 function addSticker() {
