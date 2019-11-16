@@ -3,29 +3,46 @@
         <link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.min.css" />
     </head>
     <style>
+        body {
+            padding-top: 30px;
+        }
         .camera-container {
             display: block;
             width: 400;
             margin: auto;
         }
+
+        .overlay {
+            background: #fff;
+            opacity: 0.5;
+            width: 400;
+            height: 100%;
+            position: absolute;
+        }
+
+        .overlay > span {
+            font-size: 180px;
+            width: 400;
+            display: block;
+        }
     </style>
-    <body>
+    <body onload="init()">
 
         <div class="row">
             <div class="col-md-2 offset-md-1 ">
                 <div class="row">
                     <div class="col-md-12">
-                        <button>first</button>
+                        <img src="./assets/images/bleeh.png" width="100">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        <button>first</button>
+                        <img src="./assets/images/love.png" width="100">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        <button>first</button>
+                        <img src="./assets/images/mad.png" width="100">
                     </div>
                 </div>
                 
@@ -34,6 +51,9 @@
                 <div class="camera-container">
                     <div class="row" id="cameraRow">
                         <div class="col-md-12">
+                            <div class="overlay" id="timer">
+                                <span id="counter" class="text-center"></span>
+                            </div>
                             <div id="my_camera" style="background-color: blue">
                             </div>
                         </div>
@@ -49,17 +69,17 @@
             <div class="col-md-2">
                 <div class="row">
                     <div class="col-md-12">
-                        <button>first</button>
+                        <img src="./assets/images/troll.png" width="150">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        <button>first</button>
+                        <img src="./assets/images/troll2.png" width="150">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        <button>first</button>
+                        <img src="./assets/images/sunglass.png" width="150">
                     </div>
                 </div>
             </div>
@@ -71,7 +91,8 @@
         </div>
         <div class="row">
             <div class="col-md-6 offset-md-3 text-center">
-                <button id="takeButton" onclick="take_snapshot()">Take Photo</button>
+                <!-- <button id="takeButton" onclick="take_snapshot()">Take Photo</button> -->
+                <button id="takeButton" onclick="showTimer()">Take Photo</button>
                 <button id="saveButton" class="d-none" onclick="save_photo()">Save Photo</button>
 
             </div>
@@ -83,6 +104,16 @@
         <script src="./assets/js/jquery.js"></script>
         <script src="./assets/js/fabric.min.js"></script>
         <script src="./assets/js/webcam.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/handtrackjs/dist/handtrack.min.js"> </script>
+        <script>
+        
+            const camera = document.getElementById('my_camera');
+            handTrack.load().then(model => { 
+                model.detect(camera).then(predictions => {
+                console.log('Predictions: ', predictions) // bbox predictions
+                });
+            });
+            </script>
         <script src="./assets/js/main.js"></script>
     </body>
 </html>
