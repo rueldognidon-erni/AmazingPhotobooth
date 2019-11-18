@@ -1,3 +1,7 @@
+function init() {
+  document.getElementById('timer').style.visibility = "hidden";
+}
+
 Webcam.set({
   width: 600,
   height: 450,
@@ -9,11 +13,37 @@ Webcam.attach('#my_camera');
 var canvas = new fabric.Canvas('myCanvas');
 canvas.backgroundColor = 'yellow';
 
+function showTimer() {
+  document.getElementById('timer').style.visibility = "visible";
+  document.getElementById('counter').innerHTML = '5';
+  
+  setTimeout(() => {
+    document.getElementById('counter').innerHTML = '4';
+  }, 1000);
+
+  setTimeout(() => {
+    document.getElementById('counter').innerHTML = '3';
+  }, 2000);
+
+  setTimeout(() => {
+    document.getElementById('counter').innerHTML = '2';
+  }, 3000);
+
+  setTimeout(() => {
+    document.getElementById('counter').innerHTML = '1';
+  }, 4000);
+
+  setTimeout(() => {
+    document.getElementById('timer').style.visibility = "hidden";
+    alert('take snapshot');
+  }, 5000);
+}
+
+
 var timerRef;
 function start_snapshot_timer(){
   counter = 0;
   timerRef = setInterval(countDownTimer,1000);
-
 }
 
 var counter = 0;
@@ -41,6 +71,7 @@ function countDownTimer(){
   }
 }
 
+  
 function take_snapshot() {
   // take snapshot and get image data
   Webcam.snap(function(data_uri) {
