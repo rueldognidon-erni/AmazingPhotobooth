@@ -36,14 +36,14 @@
         .overlay {
             background: #fff;
             opacity: 0.5;
-            width: 400;
+            width: 600;
             height: 100%;
             position: absolute;
         }
 
         .overlay > span {
             font-size: 180px;
-            width: 400;
+            width: 600;
             display: block;
         }
     </style>
@@ -56,18 +56,22 @@
         <div class="row">
             <div class="col-md-2 offset-md-1 ">
                 <div class="row">
-                    <div class="col-md-12">
-                        <img src="./assets/images/bleeh.png" width="100">
+                    <div class="col-md-12 text-right">
+                        <a onclick="add_bleeh()">
+                            <img src="./assets/images/bleeh.png" width="100">
+                        </a>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-12">
-                        <img src="./assets/images/love.png" width="100">
+                    <div class="col-md-12 text-right">
+                        <a onclick="add_love()">
+                            <img src="./assets/images/love.png" width="100">
+                        </a>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-12">
-                        <img src="./assets/images/mad.png" width="100">
+                    <div class="col-md-12 text-right">
+                            <a onclick="add_mad()"><img src="./assets/images/mad.png" width="100"></a>
                     </div>
                 </div>
                 
@@ -79,7 +83,7 @@
                             <div class="overlay" id="timer">
                                 <span id="counter" class="text-center"></span>
                             </div>
-                            <div id="my_camera" style="background-color: blue">
+                            <div id="my_camera">
                             </div>
                         </div>
                     </div>
@@ -96,22 +100,22 @@
             <div class="col-md-2">
                 <div class="row">
                     <div class="col-md-12">
-                        <img src="./assets/images/troll.png" width="150">
+                            <a onclick="add_troll()"><img src="./assets/images/troll.png" width="150"></a>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        <img src="./assets/images/troll2.png" width="150">
+                            <a onclick="add_troll2()"><img src="./assets/images/troll2.png" width="150"></a>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        <img src="./assets/images/sunglass.png" width="150">
+                            <a onclick="add_sunglass()"><img src="./assets/images/sunglass.png" width="150"></a>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="row">
+        <!-- <div class="row">
             <div class="col-md-6 offset-md-3">
                <p class="text-center">
                    <span id="counter3" class="countInactive">3</span>
@@ -120,7 +124,7 @@
                    <span id="counter0" class="countInactive">0</span>
                </p>
             </div>
-        </div>
+        </div> -->
         <div class="row">
             <div class="col-md-6 offset-md-3 text-center">
                 <a id="takeButton" class="waves-effect waves-light btn blue darken-2" onclick="start_snapshot_timer()">

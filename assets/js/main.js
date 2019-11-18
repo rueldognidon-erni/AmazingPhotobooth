@@ -13,36 +13,10 @@ Webcam.attach('#my_camera');
 var canvas = new fabric.Canvas('myCanvas');
 canvas.backgroundColor = 'yellow';
 
-function showTimer() {
-  document.getElementById('timer').style.visibility = "visible";
-  document.getElementById('counter').innerHTML = '5';
-  
-  setTimeout(() => {
-    document.getElementById('counter').innerHTML = '4';
-  }, 1000);
-
-  setTimeout(() => {
-    document.getElementById('counter').innerHTML = '3';
-  }, 2000);
-
-  setTimeout(() => {
-    document.getElementById('counter').innerHTML = '2';
-  }, 3000);
-
-  setTimeout(() => {
-    document.getElementById('counter').innerHTML = '1';
-  }, 4000);
-
-  setTimeout(() => {
-    document.getElementById('timer').style.visibility = "hidden";
-    alert('take snapshot');
-  }, 5000);
-}
-
-
 var timerRef;
 function start_snapshot_timer(){
   counter = 0;
+  document.getElementById('timer').style.visibility = "visible";
   timerRef = setInterval(countDownTimer,1000);
 }
 
@@ -53,20 +27,13 @@ function countDownTimer(){
   
   var ind = 3 - counter;
 
-  for(i = 0; i < 4; i++){
-    
-    var counterLabel = document.getElementById('counter' + i);
-    if(i == ind){
-      counterLabel.className = "countActive";
-    }else{
-      counterLabel.className = "countInactive";
-    }
-  }
+  document.getElementById('counter').innerHTML = ind;
 
   counter++;
 
   if(counter == 4){
     clearInterval(timerRef);
+    document.getElementById('timer').style.visibility = "hidden";
     take_snapshot();
   }
 }
@@ -96,15 +63,17 @@ function take_snapshot() {
 function save_photo(){
 
   
-
-  var image = canvas.toDataURL("image/jpeg");
+  var image = canvas.toDataURL(
+    {
+      format: 'jpeg',
+      quality: 0.8,
+    }
+  );
 
   $("#galleryRow")
   .append("<div class='col-md-2'><img src='" + 
   image + "' style='width:100%'/></div>");
-
-  var counterLabel = document.getElementById('counter0');
-  counterLabel.className = "countInactive";
+  
   togglePreview();
 }
 
@@ -128,32 +97,32 @@ function beep() {
   snd.play();
 }
 
-function addSticker() {
-  fabric.Image.fromURL('/web_photobooth/assets/stickers/smiley.png', function(
-    oImg
-  ) {
-    oImg.scale(0.1);
+function addSticker(imgName) {
+  fabric.Image.fromURL('./assets/images/'+imgName+'.png', function(oImg) {
+    oImg.scale(0.5);
     canvas.add(oImg);
   });
 }
 
-var imageSaver = document.getElementById('download');
-imageSaver.addEventListener('click', saveImage, false);
-
-function saveImage() {
-  this.href = canvas.toDataURL({
-      format: 'jpeg',
-      quality: 0.8
-  });
-  this.download = 'canvas.jpeg'
+function add_bleeh(){
+  addSticker('bleeh');
+}
+function add_love(){
+  addSticker('love');
+}
+function add_mad(){
+  addSticker('mad');
+}
+function add_troll(){
+  addSticker('troll');
+}
+function add_troll2(){
+  addSticker('troll2');
+}
+function add_sunglass(){
+  addSticker('sunglass');
 }
 
-// fabric.Image.fromURL('/web_photobooth/assets/stickers/smiley.png', function(
-//   oImg
-// ) {
-//   oImg.scale(0.1);
-//   canvas.add(oImg);
-// });
 
 $('#remove').click(function() {
   var object = canvas.getActiveObject();
