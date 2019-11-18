@@ -1,6 +1,6 @@
 Webcam.set({
-  width: 400,
-  height: 300,
+  width: 600,
+  height: 450,
   image_format: 'jpeg',
   jpeg_quality: 90
 });
@@ -70,7 +70,7 @@ function save_photo(){
 
   $("#galleryRow")
   .append("<div class='col-md-2'><img src='" + 
-  image + "' style='width:100'/></div>");
+  image + "' style='width:100%'/></div>");
 
   var counterLabel = document.getElementById('counter0');
   counterLabel.className = "countInactive";
